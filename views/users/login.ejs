@@ -1,0 +1,73 @@
+<% layout('layouts/boilerplate')%>
+<h1 class="text-center" style="color: white;">Login to My Bookings</h1>
+<div class="login-container d-flex justify-content-center align-items-center min-vh-100">
+    <form action="/login" method="POST" class="validated-form login-form" novalidate>
+        <div class="mb-3">
+            <label class="form-label" for="username">Username</label>
+            <input class="form-control" type="text" id="username" name="username" placeholder="Enter your username" required>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+            <div class="invalid-feedback">
+                Please provide a username.
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" for="password">Password</label>
+            <input class="form-control" type="password" id="password" name="password" placeholder="Enter your password" required>
+            <div class="valid-feedback">
+                Looks good!
+            </div>
+            <div class="invalid-feedback">
+                Please provide a password.
+            </div>
+        </div>
+
+        <button class="btn btn-success w-100">Login</button>
+    </form>
+</div>
+
+<style>
+    body {
+        background: url('https://wallpaperaccess.com/full/2130816.jpg') no-repeat center center fixed;
+        background-size: cover;
+        font-family: 'Arial', sans-serif;
+    }
+
+    .login-container {
+        padding: 20px;
+    }
+
+    .login-form {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        width: 100%;
+        max-width: 400px;
+        margin-bottom: 200px;
+    }
+
+    .login-form h1 {
+        font-size: 2rem;
+        margin-bottom: 20px;
+        color: #333;
+    }
+</style>
+
+<script>
+    (function () {
+        'use strict';
+        const forms = document.querySelectorAll('.validated-form');
+        Array.from(forms).forEach(form => {
+            form.addEventListener('submit', event => {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+    })();
+</script>
